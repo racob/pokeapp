@@ -21,7 +21,7 @@ final class PokeDetailsViewModel: ObservableObject {
         self.pokemonRepository = pokemonRepository
     }
     
-    func getPokemonDetails() {
+    @MainActor func getPokemonDetails() {
         Task {
             isLoading = true
             isError = false

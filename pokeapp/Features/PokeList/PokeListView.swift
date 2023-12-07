@@ -22,7 +22,9 @@ struct PokeListView: View {
                         ForEach(viewModel.pokemons) { pokemon in
                             PokemonListItemView(of: pokemon)
                         }
-                        Color.clear.onAppear(perform: viewModel.getPokemons)
+                        Color.clear.onAppear {
+                            viewModel.getPokemons()
+                        }
                     }
                     if !viewModel.pokemons.isEmpty {
                         nextPageView()
@@ -33,13 +35,17 @@ struct PokeListView: View {
                             ProgressView().controlSize(.large)
                         }
                         if viewModel.isError {
-                            ErrorView(onTappedRetry: viewModel.getPokemons)
+                            ErrorView {
+                                viewModel.getPokemons()
+                            }
                         }
                     }
                     
                 }
             }
-            .onAppear(perform: viewModel.getPokemons)
+            .onAppear {
+                viewModel.getPokemons()
+            }
         }
     }
     

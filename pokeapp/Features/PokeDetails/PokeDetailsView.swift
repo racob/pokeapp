@@ -43,7 +43,9 @@ struct PokeDetailsView: View {
                     ProgressView().controlSize(.large)
                 }
                 if viewModel.isError {
-                    ErrorView(onTappedRetry: viewModel.getPokemonDetails)
+                    ErrorView {
+                        viewModel.getPokemonDetails()
+                    }
                 }
             }
         }

@@ -19,7 +19,7 @@ final class PokeListViewModel: ObservableObject {
         self.pokemonRepository = pokemonRepository
     }
     
-    func getPokemons() {
+    @MainActor func getPokemons() {
         Task {
             isLoading = true
             isError = false
