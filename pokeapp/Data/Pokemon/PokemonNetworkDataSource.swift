@@ -7,7 +7,7 @@
 
 import Alamofire
 
-class PokemonNetworkDataSource {
+final class PokemonNetworkDataSource {
     private let baseUrl = "https://pokeapi.co/api/v2"
     
     private let sessionManager: Session
@@ -27,8 +27,8 @@ class PokemonNetworkDataSource {
         }
     }
     
-    func getPokemonDetail(id: String) async throws -> Pokemon {
-        let result = await sessionManager.request("\(baseUrl)/pokemon/\(id)").serializingDecodable(Pokemon.self, decoder: JSONSnakeCase.decoder()).result
+    func getPokemonDetail(id: String) async throws -> PokemonResponse {
+        let result = await sessionManager.request("\(baseUrl)/pokemon/\(id)").serializingDecodable(PokemonResponse.self, decoder: JSONSnakeCase.decoder()).result
         switch result {
         case .success(let response):
             return response
@@ -38,8 +38,8 @@ class PokemonNetworkDataSource {
         }
     }
     
-    func getSpecies(id: String) async throws -> PokemonSpecies {
-        let result = await sessionManager.request("\(baseUrl)/pokemon-species/\(id)").serializingDecodable(PokemonSpecies.self, decoder: JSONSnakeCase.decoder()).result
+    func getSpecies(id: String) async throws -> PokemonSpeciesResponse {
+        let result = await sessionManager.request("\(baseUrl)/pokemon-species/\(id)").serializingDecodable(PokemonSpeciesResponse.self, decoder: JSONSnakeCase.decoder()).result
         switch result {
         case .success(let response):
             return response
@@ -49,8 +49,8 @@ class PokemonNetworkDataSource {
         }
     }
     
-    func getEvolutions(evolutionId: String) async throws -> EvolutionChain {
-        let result = await sessionManager.request("\(baseUrl)/evolution-chain/\(evolutionId)").serializingDecodable(EvolutionChain.self, decoder: JSONSnakeCase.decoder()).result
+    func getEvolutions(evolutionId: String) async throws -> EvolutionChainResponse {
+        let result = await sessionManager.request("\(baseUrl)/evolution-chain/\(evolutionId)").serializingDecodable(EvolutionChainResponse.self, decoder: JSONSnakeCase.decoder()).result
         switch result {
         case .success(let response):
             return response

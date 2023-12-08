@@ -88,7 +88,7 @@ final class PokemonNetworkDataSourceTests: XCTestCase {
 
 fileprivate let mockPokemons = [NamedApiResponse(name: "pikachu", url: URL(string: "https://pokeapi.co/api/v2")!)]
 
-fileprivate let mockPokemonDetail = Pokemon(
+fileprivate let mockPokemonDetail = PokemonResponse(
     id: 25,
     name: "pikachu",
     height: 1,
@@ -97,20 +97,20 @@ fileprivate let mockPokemonDetail = Pokemon(
     types: []
 )
 
-fileprivate let mockSpecies = PokemonSpecies(
+fileprivate let mockSpecies = PokemonSpeciesResponse(
     id: 25,
-    evolutionChain: PokemonSpecies.EvolutionChain(url: URL(string: "https://pokeapi.co/api/v2")!)
+    evolutionChain: PokemonSpeciesResponse.EvolutionChainResponse(url: URL(string: "https://pokeapi.co/api/v2")!)
 )
 
-fileprivate let mockEvolutions = EvolutionChain(
+fileprivate let mockEvolutions = EvolutionChainResponse(
     id: 1,
-    chain: ChainLink(
+    chain: ChainLinkResponse(
         species: NamedApiResponse(
             name: "pikachu",
             url: URL(string: "https://pokeapi.co/api/v2")!
         ),
         evolvesTo: [
-            ChainLink(
+            ChainLinkResponse(
                 species: NamedApiResponse(
                     name: "raichu",
                     url: URL(string: "https://pokeapi.co/api/v2")!
