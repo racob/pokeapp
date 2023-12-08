@@ -1,5 +1,5 @@
 //
-//  Pokemon.swift
+//  PokemonResponse.swift
 //  pokeapp
 //
 //  Created by MAC-097419 on 07/12/23.
@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct Pokemon: Codable, Equatable {
+struct PokemonResponse: Codable, Equatable {
     let id: Int
     let name: String
     let height: Int // in decimeters
     let weight: Int // in hectograms
-    let stats: [Stat]
-    let types: [PokeType]
+    let stats: [StatResponse]
+    let types: [PokeTypeResponse]
     
     var heightInMeter: String {
         String(format: "%.1f", Double(height) / 10.0)
@@ -54,12 +54,12 @@ struct Pokemon: Codable, Equatable {
     }
 }
 
-struct Stat: Codable, Equatable {
+struct StatResponse: Codable, Equatable {
     let baseStat: Int
     let stat: NamedApiResponse
 }
 
-struct PokeType: Codable, Equatable {
+struct PokeTypeResponse: Codable, Equatable {
     let slot: Int
     let type: NamedApiResponse
 }

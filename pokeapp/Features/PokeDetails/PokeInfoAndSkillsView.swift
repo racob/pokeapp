@@ -9,9 +9,9 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct PokeInfoAndSkillsView: View {
-    private let pokemon: Pokemon
+    private let pokemon: PokemonResponse
     
-    init(of pokemon: Pokemon) {
+    init(of pokemon: PokemonResponse) {
         self.pokemon = pokemon
     }
     
@@ -79,19 +79,19 @@ struct PokeInfoAndSkillsView: View {
 
 #Preview {
     PokeInfoAndSkillsView(
-        of: Pokemon(
+        of: PokemonResponse(
             id: 1,
             name: "Bulbasaur",
             height: 6,
             weight: 3,
             stats: [
-                Stat(baseStat: 30, stat: NamedApiResponse(name: "attack", url: NSURL() as URL)),
-                Stat(baseStat: 30, stat: NamedApiResponse(name: "hp", url: NSURL() as URL)),
-                Stat(baseStat: 30, stat: NamedApiResponse(name: "defense", url: NSURL() as URL)),
-                Stat(baseStat: 30, stat: NamedApiResponse(name: "speed", url: NSURL() as URL))
+                StatResponse(baseStat: 30, stat: NamedApiResponse(name: "attack", url: NSURL() as URL)),
+                StatResponse(baseStat: 30, stat: NamedApiResponse(name: "hp", url: NSURL() as URL)),
+                StatResponse(baseStat: 30, stat: NamedApiResponse(name: "defense", url: NSURL() as URL)),
+                StatResponse(baseStat: 30, stat: NamedApiResponse(name: "speed", url: NSURL() as URL))
             ],
             types: [
-                PokeType(slot: 1, type: NamedApiResponse(name: "Leaf", url: NSURL() as URL))
+                PokeTypeResponse(slot: 1, type: NamedApiResponse(name: "Leaf", url: NSURL() as URL))
             ]
         )
     ).padding()

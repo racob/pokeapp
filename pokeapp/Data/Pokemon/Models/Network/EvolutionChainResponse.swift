@@ -1,5 +1,5 @@
 //
-//  EvolutionChain.swift
+//  EvolutionChainResponse.swift
 //  pokeapp
 //
 //  Created by MAC-097419 on 07/12/23.
@@ -7,15 +7,15 @@
 
 import Foundation
 
-struct EvolutionChain: Codable, Equatable {
+struct EvolutionChainResponse: Codable, Equatable {
     let id: Int
-    let chain: ChainLink
+    let chain: ChainLinkResponse
     
     var list: [NamedApiResponse] {
         getAllSpecies(from: chain)
     }
     
-    private func getAllSpecies(from chainLink: ChainLink) -> [NamedApiResponse] {
+    private func getAllSpecies(from chainLink: ChainLinkResponse) -> [NamedApiResponse] {
         var allSpecies = [chainLink.species]
         
         for nextLink in chainLink.evolvesTo {
@@ -27,9 +27,7 @@ struct EvolutionChain: Codable, Equatable {
     }
 }
 
-struct ChainLink: Codable, Equatable {
+struct ChainLinkResponse: Codable, Equatable {
     let species: NamedApiResponse
-    let evolvesTo: [ChainLink]
+    let evolvesTo: [ChainLinkResponse]
 }
-
-

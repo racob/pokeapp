@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct PokemonSpecies: Codable, Equatable {
+struct PokemonSpeciesResponse: Codable, Equatable {
     let id: Int
-    let evolutionChain: Self.EvolutionChain
+    let evolutionChain: Self.EvolutionChainResponse
     
-    struct EvolutionChain: Codable, Equatable {
+    struct EvolutionChainResponse: Codable, Equatable {
         let url: URL
         
         var id: String {

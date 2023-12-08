@@ -15,6 +15,10 @@ struct PokemonListItemView: View {
         self.pokemon = pokemon
     }
     
+    init(of pokemon: NamedApi) {
+        self.init(of: NamedApiResponse(name: pokemon.name, url: URL(string: pokemon.url)!))
+    }
+    
     var body: some View {
         NavigationLink {
             PokeDetailsView(for: pokemon)

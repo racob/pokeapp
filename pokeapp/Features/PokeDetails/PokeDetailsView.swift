@@ -68,7 +68,6 @@ struct PokeDetailsView: View {
             Text("Evolutions").tag(PokeDetailTab.evolutions)
         }.pickerStyle(.segmented)
     }
-    
 }
 
 #Preview {

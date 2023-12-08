@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct PokeEvolutionsView: View {
-    private let evolution: EvolutionChain
+    private let evolution: EvolutionChainResponse
     
-    init(displaying evolution: EvolutionChain) {
+    init(displaying evolution: EvolutionChainResponse) {
         self.evolution = evolution
     }
     
@@ -29,21 +29,21 @@ struct PokeEvolutionsView: View {
 
 #Preview {
     PokeEvolutionsView(
-        displaying: EvolutionChain(
+        displaying: EvolutionChainResponse(
             id: 1,
-            chain: ChainLink(
+            chain: ChainLinkResponse(
                 species: NamedApiResponse(
                     name: "Bulbasaur",
                     url: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1")!
                 ),
                 evolvesTo: [
-                    ChainLink(
+                    ChainLinkResponse(
                         species: NamedApiResponse(
                             name: "Ivisaur",
                             url: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2")!
                         ),
                         evolvesTo: [
-                            ChainLink(
+                            ChainLinkResponse(
                                 species: NamedApiResponse(
                                     name: "Venusaur",
                                     url: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3")!
