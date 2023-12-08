@@ -11,7 +11,6 @@ final class PokeListViewModel: ObservableObject {
     @Published var pokemons: [NamedApiResponse] = []
     @Published var isLoading: Bool = true
     @Published var isError: Bool = false
-    private var page = 0
     
     private let pokemonRepository: PokemonRepository
     
@@ -27,8 +26,7 @@ final class PokeListViewModel: ObservableObject {
                 // 2 second delay to show loading
                 try await Task.sleep(nanoseconds: 2_000_000_000)
                 
-                pokemons += try await pokemonRepository.getPokemons(page: page)
-                page += 1
+                pokemons.appendWithoutDuplicate(try await pokemonRepository.getPokemons(page: pokemons.count / 20))
             } catch {
                 isError = true
             }

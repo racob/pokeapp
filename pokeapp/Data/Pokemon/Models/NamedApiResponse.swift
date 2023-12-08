@@ -11,7 +11,7 @@ struct ListResponse<T: Decodable>: Decodable {
     let results: [T]
 }
 
-struct NamedApiResponse: Identifiable, Codable {
+struct NamedApiResponse: Identifiable, Codable, Hashable {
     let name: String
     let url: URL
 }

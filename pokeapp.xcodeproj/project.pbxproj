@@ -42,6 +42,7 @@
 		51F4A7DE2B2216DF00FB5FE5 /* PokeEvolutionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F4A7DD2B2216DF00FB5FE5 /* PokeEvolutionsView.swift */; };
 		51F4A7E02B2218D100FB5FE5 /* PokemonListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F4A7DF2B2218D100FB5FE5 /* PokemonListItemView.swift */; };
 		51F4A7E22B22208800FB5FE5 /* PokemonSpecies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F4A7E12B22208800FB5FE5 /* PokemonSpecies.swift */; };
+		51F4A7E42B22A37600FB5FE5 /* Array+appendWithoutDuplicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F4A7E32B22A37600FB5FE5 /* Array+appendWithoutDuplicate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		51F4A7DD2B2216DF00FB5FE5 /* PokeEvolutionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeEvolutionsView.swift; sourceTree = "<group>"; };
 		51F4A7DF2B2218D100FB5FE5 /* PokemonListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListItemView.swift; sourceTree = "<group>"; };
 		51F4A7E12B22208800FB5FE5 /* PokemonSpecies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonSpecies.swift; sourceTree = "<group>"; };
+		51F4A7E32B22A37600FB5FE5 /* Array+appendWithoutDuplicate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+appendWithoutDuplicate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				51272CB02B21414000E83723 /* JSONDecoder+decode.swift */,
+				51F4A7E32B22A37600FB5FE5 /* Array+appendWithoutDuplicate.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -455,6 +458,7 @@
 				51272CBC2B21414000E83723 /* PokemonRepository.swift in Sources */,
 				51F4A7DC2B22138E00FB5FE5 /* PokeInfoAndSkillsView.swift in Sources */,
 				51272C5B2B213EF600E83723 /* pokeappApp.swift in Sources */,
+				51F4A7E42B22A37600FB5FE5 /* Array+appendWithoutDuplicate.swift in Sources */,
 				51F4A7DA2B220EF800FB5FE5 /* EvolutionChain.swift in Sources */,
 				51272CAC2B21411C00E83723 /* SignInView.swift in Sources */,
 				51F4A7E02B2218D100FB5FE5 /* PokemonListItemView.swift in Sources */,
@@ -645,6 +649,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -679,6 +684,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

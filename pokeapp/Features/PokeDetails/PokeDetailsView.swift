@@ -19,6 +19,7 @@ struct PokeDetailsView: View {
     
     init(for pokemon: NamedApiResponse) {
         self.viewModel = PokeDetailsViewModel(for: pokemon)
+        
         UISegmentedControl.appearance().selectedSegmentTintColor = .secondary800
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor(Color.primary800)], for: .normal)
@@ -27,34 +28,37 @@ struct PokeDetailsView: View {
     var body: some View {
         ZStack {
             Color.light800.ignoresSafeArea()
-            if let pokemon = viewModel.pokemon, let evolutions = viewModel.evolutions {
-                VStack(spacing: 25) {
-                    segmentedTab()
-                    switch tab {
-                    case .summary:
-                        PokeInfoAndSkillsView(of: pokemon)
-                    case .evolutions:
-                        PokeEvolutionsView(displaying: evolutions)
-                    }
-                    
-                }.padding()
-            } else {
-                if viewModel.isLoading {
-                    ProgressView().controlSize(.large)
-                }
-                if viewModel.isError {
-                    ErrorView {
-                        viewModel.getPokemonDetails()
-                    }
-                }
-            }
-        }
-        .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
+            VStack(alignment: .leading) {
                 NavigationBackButton(label: "#\(viewModel.pokemonResponse.id) \(viewModel.pokemonResponse.name.capitalized)")
+                Divider()
+                VStack(spacing: 25) {
+                    if let pokemon = viewModel.pokemon, let evolutions = viewModel.evolutions {
+                        segmentedTab()
+                        switch tab {
+                        case .summary:
+                            PokeInfoAndSkillsView(of: pokemon)
+                        case .evolutions:
+                            PokeEvolutionsView(displaying: evolutions)
+                        }
+                    }
+                    Spacer()
+                }
+                .frame(maxWidth: .infinity)
+                .overlay {
+                    if viewModel.isLoading {
+                        ProgressView().controlSize(.large)
+                    }
+                    if viewModel.isError {
+                        ErrorView {
+                            viewModel.getPokemonDetails()
+                        }
+                    }
+                }
+                
             }
+            .padding()
         }
-        .navigationBarBackButtonHidden()
+        .navigationBarHidden(true)
         .onAppear(perform: viewModel.getPokemonDetails)
     }
     
@@ -69,14 +73,4 @@ struct PokeDetailsView: View {
 
 #Preview {
     PokeDetailsView(for: NamedApiResponse(name: "clefairy", url: URL(string: "https://pokeapi.co/api/v2/pokemon/35")!))
-}
-
-#Preview {
-    NavigationView {
-        NavigationLink {
-            PokeDetailsView(for: NamedApiResponse(name: "clefairy", url: URL(string: "https://pokeapi.co/api/v2/pokemon/35")!)).navigationBarTitleDisplayMode(.inline)
-        } label: {
-            Text("See pokemon detail")
-        }
-    }
 }

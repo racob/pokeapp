@@ -50,7 +50,9 @@ struct PokeInfoAndSkillsView: View {
     private func skills() -> some View {
         VStack(spacing: 20) {
             VStack(alignment: .leading, spacing: 5) {
-                Text("Skills").font(.title2)
+                Text("Skills")
+                    .font(.title2)
+                    .foregroundStyle(.primary800)
                 Divider()
             }
             skill(label: "Attack", value: pokemon.attack)

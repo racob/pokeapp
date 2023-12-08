@@ -32,7 +32,9 @@ struct PokeListView: View {
                 }.overlay {
                     if viewModel.pokemons.isEmpty {
                         if viewModel.isLoading {
-                            ProgressView().controlSize(.large)
+                            ProgressView() {
+                                Text("Getting pokemons...")
+                            }.controlSize(.large)
                         }
                         if viewModel.isError {
                             ErrorView {

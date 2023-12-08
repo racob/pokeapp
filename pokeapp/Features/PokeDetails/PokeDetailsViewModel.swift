@@ -26,6 +26,8 @@ final class PokeDetailsViewModel: ObservableObject {
             isLoading = true
             isError = false
             do {
+                try await Task.sleep(nanoseconds: 1_000_000_000)
+                
                 let species = try await pokemonRepository.getSpecies(id: String(pokemonResponse.id))
                 pokemon = try await pokemonRepository.getPokemonDetails(id: String(pokemonResponse.id))
                 evolutions = try await pokemonRepository.getEvolutions(evolutionId: species.evolutionChain.id)
