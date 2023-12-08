@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct EvolutionChain: Codable {
+struct EvolutionChain: Codable, Equatable {
     let id: Int
     let chain: ChainLink
     
@@ -27,7 +27,7 @@ struct EvolutionChain: Codable {
     }
 }
 
-struct ChainLink: Codable {
+struct ChainLink: Codable, Equatable {
     let species: NamedApiResponse
     let evolvesTo: [ChainLink]
 }

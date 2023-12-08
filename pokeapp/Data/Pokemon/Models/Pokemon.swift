@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Pokemon: Codable {
+struct Pokemon: Codable, Equatable {
     let id: Int
     let name: String
     let height: Int // in decimeters
@@ -54,12 +54,12 @@ struct Pokemon: Codable {
     }
 }
 
-struct Stat: Codable {
+struct Stat: Codable, Equatable {
     let baseStat: Int
     let stat: NamedApiResponse
 }
 
-struct PokeType: Codable {
+struct PokeType: Codable, Equatable {
     let slot: Int
     let type: NamedApiResponse
 }

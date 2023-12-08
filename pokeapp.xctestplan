@@ -1,0 +1,36 @@
+{
+  "configurations" : [
+    {
+      "id" : "3193D6AE-B367-49FF-A7CF-7A6F529136AD",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:pokeapp.xcodeproj",
+      "identifier" : "51272C562B213EF600E83723",
+      "name" : "pokeapp"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:pokeapp.xcodeproj",
+        "identifier" : "51272C662B213EF800E83723",
+        "name" : "pokeappTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:pokeapp.xcodeproj",
+        "identifier" : "51272C702B213EF800E83723",
+        "name" : "pokeappUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

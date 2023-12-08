@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ListResponse<T: Decodable>: Decodable {
+struct ListResponse<T: Codable>: Codable {
     let results: [T]
 }
 

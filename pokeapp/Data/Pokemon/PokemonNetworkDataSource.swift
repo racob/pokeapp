@@ -8,11 +8,16 @@
 import Alamofire
 
 class PokemonNetworkDataSource {
-    
     private let baseUrl = "https://pokeapi.co/api/v2"
     
+    private let sessionManager: Session
+    
+    init(sessionManager: Session = Session()) {
+        self.sessionManager = sessionManager
+    }
+    
     func getPokemons(page: Int = 0) async throws -> [NamedApiResponse] {
-        let result = await AF.request("\(baseUrl)/pokemon?offset=\(page * 20)").serializingDecodable(ListResponse<NamedApiResponse>.self, decoder: JSONSnakeCase.decoder()).result
+        let result = await sessionManager.request("\(baseUrl)/pokemon?offset=\(page * 20)").serializingDecodable(ListResponse<NamedApiResponse>.self, decoder: JSONSnakeCase.decoder()).result
         switch result {
         case .success(let response):
             return response.results
@@ -23,7 +28,7 @@ class PokemonNetworkDataSource {
     }
     
     func getPokemonDetail(id: String) async throws -> Pokemon {
-        let result = await AF.request("\(baseUrl)/pokemon/\(id)").serializingDecodable(Pokemon.self, decoder: JSONSnakeCase.decoder()).result
+        let result = await sessionManager.request("\(baseUrl)/pokemon/\(id)").serializingDecodable(Pokemon.self, decoder: JSONSnakeCase.decoder()).result
         switch result {
         case .success(let response):
             return response
@@ -34,7 +39,7 @@ class PokemonNetworkDataSource {
     }
     
     func getSpecies(id: String) async throws -> PokemonSpecies {
-        let result = await AF.request("\(baseUrl)/pokemon-species/\(id)").serializingDecodable(PokemonSpecies.self, decoder: JSONSnakeCase.decoder()).result
+        let result = await sessionManager.request("\(baseUrl)/pokemon-species/\(id)").serializingDecodable(PokemonSpecies.self, decoder: JSONSnakeCase.decoder()).result
         switch result {
         case .success(let response):
             return response
@@ -45,7 +50,7 @@ class PokemonNetworkDataSource {
     }
     
     func getEvolutions(evolutionId: String) async throws -> EvolutionChain {
-        let result = await AF.request("\(baseUrl)/evolution-chain/\(evolutionId)").serializingDecodable(EvolutionChain.self, decoder: JSONSnakeCase.decoder()).result
+        let result = await sessionManager.request("\(baseUrl)/evolution-chain/\(evolutionId)").serializingDecodable(EvolutionChain.self, decoder: JSONSnakeCase.decoder()).result
         switch result {
         case .success(let response):
             return response
